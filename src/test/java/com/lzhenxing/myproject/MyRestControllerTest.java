@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
@@ -23,12 +24,20 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class MyRestControllerTest {
 
     @Autowired
+    private TestRestTemplate restTemplate;
+
+    @Autowired
     private MyRestController myRestController;
 
     @Test
     public void userTest() {
+
+        User user1 = restTemplate.getForObject("/users/2", User.class);
+        System.out.println(user1.toString());
+
         User user = this.myRestController.getUser(1L);
         System.out.println(user.toString());
+
     }
 
 }
