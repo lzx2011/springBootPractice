@@ -10,12 +10,16 @@ public class OrderPrint {
 
     private static Integer num = 1;
 
+    //如果顺序输出 a,b,c 则用数组，用下标取模进行区别
+    private static char[] arr = {'a', 'b', 'c'};
+
     static class Thread1 implements Runnable{
         @Override
         public void run(){
             int i = 0;
             while (true){
                 synchronized (this){
+                    //arr[num%3]
                     if(num % 3 == 1){
                         System.out.println("Thread1: 1");
                         num++;
