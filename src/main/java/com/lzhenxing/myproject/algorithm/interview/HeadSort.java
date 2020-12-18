@@ -38,7 +38,7 @@ public class HeadSort {
     }
 
     /**
-     * 调整大顶堆
+     * 调整大顶堆，注意这里只调整了一次，使用的前提是大顶堆已经构建好了
      * @param arr
      * @param i
      * @param length
