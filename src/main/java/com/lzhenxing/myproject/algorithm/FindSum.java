@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *   ClassName: FindSum <br/>   Function: <br/>
+ *   ClassName: FindSum <br/>
+ *   Function: by byteDance<br/>
  *
  * @author zhenxing.liu
  * @date 2020/10/25
@@ -12,8 +13,10 @@ import java.util.List;
 public class FindSum {
 
     public static void main(String[] args) {
-        int[] num = {1, 2, 4, 5, 6, 7};
-        System.out.println(findList(num, 9));
+        int[] num1 = {1, 2, 4, 5, 6, 7};
+        int[] num2 = {1, 2, 4, 5, 5, 6, 7};
+        System.out.println(findList(num1, 9));
+        System.out.println(findList(num2, 9));
     }
 
     /**
@@ -39,10 +42,20 @@ public class FindSum {
             }else if((num[i] + num[j]) < m){
                 i++;
             }else{
-                List<Integer> reuslt = new ArrayList();
-                reuslt.add(num[i]);
-                reuslt.add(num[j]);
-                resultList.add(reuslt);
+                //如果结果要去重
+                boolean isRepeat = false;
+                for(int k = 0; k < resultList.size(); k++){
+                    isRepeat = resultList.get(k).contains(num[i]);
+                    if(isRepeat){
+                        break;
+                    }
+                }
+                if(!isRepeat){
+                    List<Integer> result = new ArrayList();
+                    result.add(num[i]);
+                    result.add(num[j]);
+                    resultList.add(result);
+                }
                 j--;
             }
         }

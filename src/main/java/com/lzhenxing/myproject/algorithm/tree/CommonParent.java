@@ -4,8 +4,6 @@ package com.lzhenxing.myproject.algorithm.tree;
  *   ClassName: CommonParent <br/>
  *   Function: 公共祖先<br/>
  *
- *
- *
  * @author zhenxing.liu
  * @date 2020/12/16
  */
@@ -33,8 +31,8 @@ public class CommonParent {
     public static void main(String[] args) {
         TreeNode root = TreeNode.initTree();
         //TreeNode root = null;
-        TreeNode p = root.right;
-        TreeNode q = root.left.left;
+        TreeNode p = root.left;
+        TreeNode q = root.right.right;
         TreeNode commonParent = commonParent(root, p, q);
         if(commonParent == null){
             System.out.println(commonParent);
